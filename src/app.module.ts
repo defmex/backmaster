@@ -9,7 +9,7 @@ import { PersonasModule } from './personas/personas.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'db',
+      host: '/cloudsql/ $(process.env.DB_HOST)',
       port: Number.parseInt(process.env.DB_PORT),
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
@@ -23,4 +23,4 @@ import { PersonasModule } from './personas/personas.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
